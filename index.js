@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const products = [];
+    const produtos = [];
 
     const productForm = document.getElementById('productForm');
     const productList = document.getElementById('productList');
@@ -15,15 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const disponivelParaVenda = document.querySelector('input[name="disponivelParaVenda"]:checked').value;
 
         const produto = { nome: nomeProduto, descricao: descricaoProduto, valor: valorProduto, disponivel: disponivelParaVenda };
-        products.push(produto);
+        produtos.push(produto);
 
         productForm.reset();
         bootstrapModal.show();
-        updateProductList();
+        atualizarLista();
     });
 
-    function updateProductList() {
-        productList.innerHTML = products.map((produto) => `
+    function atualizarLista() {
+        productList.innerHTML = produtos.map((produto) => `
             <li class="list-group-item">
                 <strong>${produto.nome}</strong><br>
                 Descrição: ${produto.descricao}<br>
